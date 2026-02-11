@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Tường: An Toàn Không Gian Số</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="font-bold text-xl text-blue-700">Digital Safety 2026</h1>
+            <ul class="flex space-x-6 text-gray-600 font-medium">
+                <li><a href="index.html" class="hover:text-blue-600">Trang chủ</a></li>
+                <li><a href="habits.html" class="hover:text-blue-600">Thói quen</a></li>
+                <li><a href="risks.html" class="hover:text-blue-600">Nguy cơ</a></li>
+                <li><a href="solutions.html" class="hover:text-blue-600">Cách xử lý</a></li>
+                <li><a href="student.html">Góc học sinh</a></li>
+                <li><a href="team.html">Nhóm thực hiện</a></li>
+            </ul>
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Quay lại trang chủ</a>
+        </div>
+    </nav>
+
+    <div id="chatbox" class="fixed bottom-0 right-5 w-80 bg-white shadow-2xl rounded-t-xl border border-gray-200 transition-all duration-300 transform translate-y-[260px]">
+    <div onclick="toggleChat()" class="bg-blue-600 text-white p-3 rounded-t-xl font-bold cursor-pointer flex justify-between items-center shadow-lg">
+        <span>💬 Hộp Góp Ý</span>
+        <span id="chat-icon">▲</span>
+    </div>
+    
+    <div class="p-4 bg-white h-[260px]">
+        <label class="block text-xs font-semibold text-gray-500 mb-1">HỌ VÀ TÊN</label>
+        <input type="text" id="user-name" placeholder="Nhập tên của bạn..." 
+               class="w-full border border-gray-300 p-2 mb-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+        <label class="block text-xs font-semibold text-gray-500 mb-1">Ý KIẾN ĐÓNG GÓP</label>
+        <textarea id="user-comment" placeholder="Chúng tôi có thể cải thiện điều gì?" 
+                  class="w-full border border-gray-300 p-2 mb-3 rounded-lg text-sm h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        
+        <button onclick="sendFeedback()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">
+            Gửi góp ý
+        </button>
+    </div>
+
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<section class="max-w-md mx-auto py-20 px-4" data-aos="fade-up">
+    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+        <h2 class="text-2xl font-bold text-center mb-6">Tạo tài khoản mới</h2>
+        <form id="register-form" class="space-y-4">
+            <input type="text" id="reg-name" placeholder="Họ và tên" class="w-full border p-3 rounded-lg" required>
+            <input type="email" id="reg-email" placeholder="Email" class="w-full border p-3 rounded-lg" required>
+            <input type="password" id="reg-password" placeholder="Mật khẩu (ít nhất 6 ký tự)" class="w-full border p-3 rounded-lg" required>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700">Đăng ký</button>
+        </form>
+        <p class="text-center mt-4 text-sm">Đã có tài khoản? <a href="login.html" class="text-blue-600">Đăng nhập ngay</a></p>
+    </div>
+</section>
+</body>
+</html>

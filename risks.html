@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Tường: An Toàn Không Gian Số</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+<nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="font-bold text-xl text-blue-700">Digital Safety 2026</h1>
+            <ul class="flex space-x-6 text-gray-600 font-medium">
+                <li><a href="index.html" class="hover:text-blue-600">Trang chủ</a></li>
+                <li><a href="habits.html" class="hover:text-blue-600">Thói quen</a></li>
+                <li><a href="risks.html" class="hover:text-blue-600">Nguy cơ</a></li>
+                <li><a href="solutions.html" class="hover:text-blue-600">Cách xử lý</a></li>
+                <li><a href="student.html">Góc học sinh</a></li>
+                <li><a href="team.html">Nhóm thực hiện</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" id="login-btn" class="text-gray-600 hover:text-blue-600">Đăng nhập</a>
+                <a href="register.html" id="register-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Đăng ký</a>
+                <span id="user-info" class="hidden text-blue-700 font-bold"></span>
+                <button id="logout-btn" class="hidden text-red-500 text-sm underline">Đăng xuất</button>
+            </div>
+            
+        </div>
+    </nav>
+
+    <div id="chatbox" class="fixed bottom-0 right-5 w-80 bg-white shadow-2xl rounded-t-xl border border-gray-200 transition-all duration-300 transform translate-y-[260px]">
+    <div onclick="toggleChat()" class="bg-blue-600 text-white p-3 rounded-t-xl font-bold cursor-pointer flex justify-between items-center shadow-lg">
+        <span>💬 Hộp Góp Ý</span>
+        <span id="chat-icon">▲</span>
+    </div>
+    
+    <div class="p-4 bg-white h-[260px]">
+        <label class="block text-xs font-semibold text-gray-500 mb-1">HỌ VÀ TÊN</label>
+        <input type="text" id="user-name" placeholder="Nhập tên của bạn..." 
+               class="w-full border border-gray-300 p-2 mb-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+        <label class="block text-xs font-semibold text-gray-500 mb-1">Ý KIẾN ĐÓNG GÓP</label>
+        <textarea id="user-comment" placeholder="Chúng tôi có thể cải thiện điều gì?" 
+                  class="w-full border border-gray-300 p-2 mb-3 rounded-lg text-sm h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        
+        <button onclick="sendFeedback()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">
+            Gửi góp ý
+        </button>
+    </div>
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<section class="max-w-6xl mx-auto py-12 px-4">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-red-700 mb-4">NGUY CƠ TIỀM ẨN TRÊN KHÔNG GIAN MẠNG</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Không gian số mang lại nhiều tiện ích nhưng cũng đầy rẫy những cạm bẫy tinh vi. Việc nhận diện đúng các nguy cơ là bước đầu tiên để tự bảo vệ mình.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500"data-aos="fade-up">
+            <div class="text-3xl mb-4">🕵️‍♂️</div>
+            <h3 class="font-bold text-lg mb-2 text-gray-800">Đánh cắp danh tính</h3>
+            <p class="text-sm text-gray-600">Kẻ xấu sử dụng thông tin cá nhân (họ tên, CMND, số điện thoại) để vay tiền tín dụng đen, lừa đảo người thân hoặc bôi nhọ danh dự trên mạng.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500"data-aos="fade-up" data-aos-delay="150">
+            <div class="text-3xl mb-4">📧</div>
+            <h3 class="font-bold text-lg mb-2 text-gray-800">Tấn công giả mạo (Phishing)</h3>
+            <p class="text-sm text-gray-600">Gửi các email hoặc tin nhắn giả danh ngân hàng, cơ quan nhà nước yêu cầu nhấn vào đường link lạ để đánh cắp mật khẩu và tài khoản ngân hàng.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500"data-aos="fade-up" data-aos-delay="300">
+            <div class="text-3xl mb-4">👾</div>
+            <h3 class="font-bold text-lg mb-2 text-gray-800">Mã độc và Virus</h3>
+            <p class="text-sm text-gray-600">Các phần mềm độc hại (Malware), mã độc tống tiền (Ransomware) lây nhiễm qua các ứng dụng không rõ nguồn gốc, chiếm quyền điều khiển thiết bị.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500"data-aos="fade-up" data-aos-delay="450">
+            <div class="text-3xl mb-4">📱</div>
+            <h3 class="font-bold text-lg mb-2 text-gray-800">Lừa đảo qua Mạng xã hội</h3>
+            <p class="text-sm text-gray-600">Hack tài khoản người thân để mượn tiền, lừa đảo trúng thưởng, hoặc kêu gọi đầu tư tài chính ảo với lợi nhuận "khủng".</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500"data-aos="fade-up" data-aos-delay="600">
+            <div class="text-3xl mb-4">🗣️</div>
+            <h3 class="font-bold text-lg mb-2 text-gray-800">Tin giả (Fake News)</h3>
+            <p class="text-sm text-gray-600">Các luồng thông tin sai sự thật gây hoang mang dư luận, dẫn dắt người dùng thực hiện các hành vi vi phạm pháp luật.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500"data-aos="fade-up" data-aos-delay="750">
+            <div class="text-3xl mb-4">📸</div>
+            <h3 class="font-bold text-lg mb-2 text-gray-800">Bắt nạt qua mạng (Cyberbullying)</h3>
+            <p class="text-sm text-gray-600">Công kích cá nhân, cô lập, hoặc sử dụng hình ảnh nhạy cảm để đe dọa, gây ảnh hưởng nghiêm trọng đến tâm lý người dùng.</p>
+        </div>
+    </div>
+
+    <div class="bg-gray-100 p-8 rounded-2xl border-2 border-dashed border-gray-300">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-700 italic underline">Đọc thêm: Nghiên cứu về nguy cơ đối với sinh viên</h3>
+            <a href="https://lyluanchinhtrivatruyenthong.vn/nhung-nguy-co-mat-an-toan-trong-su-dung-mang-xa-hoi-tren-khong-gian-mang-cua-sinh-vien-hien-nay-p28604.html" 
+               target="_blank" class="text-blue-600 font-semibold hover:text-blue-800">Xem trang gốc ↗</a>
+        </div>
+        
+        <div class="overflow-hidden rounded-lg shadow-inner bg-white"data-aos="fade-up">
+            <iframe 
+                src="https://lyluanchinhtrivatruyenthong.vn/nhung-nguy-co-mat-an-toan-trong-su-dung-mang-xa-hoi-tren-khong-gian-mang-cua-sinh-vien-hien-nay-p28604.html" 
+                class="w-full h-[600px] border-none"
+                title="Bài báo về nguy cơ mất an toàn mạng">
+            </iframe>
+        </div>
+        <p class="text-center text-xs text-gray-400 mt-4">Nguồn: lyluanchinhtrivatruyenthong.vn</p>
+    </div>
+    <div class="mt-12" data-aos="zoom-in">
+    <div class="bg-white border-2 border-red-500 rounded-2xl overflow-hidden shadow-xl flex flex-col md:flex-row">
+        <div class="md:w-1/3 h-48 md:h-auto bg-gray-200">
+            <img src="https://i.ytimg.com/vi/vw4K3CsTcxQ/maxresdefault.jpg" 
+                 class="w-full h-full object-cover" alt="Security News">
+        </div>
+        
+        <div class="md:w-2/3 p-6 flex flex-col justify-center">
+            <span class="text-red-600 font-bold text-sm uppercase tracking-widest mb-2">VIDEO CHÍNH THỐNG</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 leading-tight">
+                Tiểu Điểm: Nguy cơ tiềm ẩn trên không gian mạng | VTV24
+            </h3>
+            <p class="text-gray-600 mb-6 line-clamp-3">
+                
+                Nguồn: VTV24. Chương trình Tiểu Điểm kỳ này sẽ giúp chúng ta nhận diện những nguy cơ tiềm ẩn trên không gian mạng, từ đó có những biện pháp bảo vệ bản thân và gia đình trước các mối đe dọa an ninh mạng.
+            <div>
+                <a href="https://www.youtube.com/watch?v=vw4K3CsTcxQ" 
+                   target="_blank" 
+                   class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition-colors shadow-lg">
+                    XEM VIDEO TẠI YOUTUBE ↗
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="300">
+        <a href="https://bocongan.gov.vn" target="_blank" 
+           class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 hover:scale-105 transition-all">
+            CỔNG THÔNG TIN BỘ CÔNG AN
+        </a>
+    </div>
+</section>
+</body>
+</html>

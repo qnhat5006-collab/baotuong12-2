@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Tường: An Toàn Không Gian Số</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="font-bold text-xl text-blue-700">Digital Safety 2026</h1>
+            <ul class="flex space-x-6 text-gray-600 font-medium">
+                <li><a href="index.html" class="hover:text-blue-600">Trang chủ</a></li>
+                <li><a href="habits.html" class="hover:text-blue-600">Thói quen</a></li>
+                <li><a href="risks.html" class="hover:text-blue-600">Nguy cơ</a></li>
+                <li><a href="solutions.html" class="hover:text-blue-600">Cách xử lý</a></li>
+                <li><a href="student.html">Góc học sinh</a></li>
+                <li><a href="team.html">Nhóm thực hiện</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" id="login-btn" class="text-gray-600 hover:text-blue-600">Đăng nhập</a>
+                <a href="register.html" id="register-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Đăng ký</a>
+                <span id="user-info" class="hidden text-blue-700 font-bold"></span>
+                <button id="logout-btn" class="hidden text-red-500 text-sm underline">Đăng xuất</button>
+            </div>
+            
+        </div>
+    </nav>
+
+    <div id="chatbox" class="fixed bottom-0 right-5 w-80 bg-white shadow-2xl rounded-t-xl border border-gray-200 transition-all duration-300 transform translate-y-[260px]">
+    <div onclick="toggleChat()" class="bg-blue-600 text-white p-3 rounded-t-xl font-bold cursor-pointer flex justify-between items-center shadow-lg">
+        <span>💬 Hộp Góp Ý</span>
+        <span id="chat-icon">▲</span>
+    </div>
+    
+    <div class="p-4 bg-white h-[260px]">
+        <label class="block text-xs font-semibold text-gray-500 mb-1">HỌ VÀ TÊN</label>
+        <input type="text" id="user-name" placeholder="Nhập tên của bạn..." 
+               class="w-full border border-gray-300 p-2 mb-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+        <label class="block text-xs font-semibold text-gray-500 mb-1">Ý KIẾN ĐÓNG GÓP</label>
+        <textarea id="user-comment" placeholder="Chúng tôi có thể cải thiện điều gì?" 
+                  class="w-full border border-gray-300 p-2 mb-3 rounded-lg text-sm h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        
+        <button onclick="sendFeedback()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md">
+            Gửi góp ý
+        </button>
+    </div>
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<section class="max-w-6xl mx-auto py-12 px-4">
+    <div class="relative rounded-3xl overflow-hidden mb-16 shadow-2xl" data-aos="fade-down">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200" class="w-full h-[400px] object-cover" alt="Digital World">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-transparent flex items-center p-12">
+            <div class="max-w-lg text-white">
+                <h2 class="text-5xl font-extrabold mb-4 leading-tight">An Toàn Số <br><span class="text-blue-400">Hành Trình Mới</span></h2>
+                <p class="text-lg opacity-90">Báo tường điện tử cung cấp kiến thức, kỹ năng và cảnh báo mới nhất về không gian mạng năm 2026.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 border-l-4 border-blue-600 pl-4">Về dự án này</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+                Dự án <strong>"Báo tường An toàn số"</strong> được xây dựng nhằm tạo ra một lá chắn tri thức cho người dùng Internet, đặc biệt là thế hệ trẻ. Trong bối cảnh công nghệ AI và Big Data phát triển vượt bậc, việc bảo vệ thông tin cá nhân không còn là lựa chọn mà là sự sống còn.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                Chúng tôi kết hợp giữa các bài báo chính thống, video giáo dục và các tình huống xử lý thực tế để mang lại cái nhìn toàn diện nhất.
+            </p>
+        </div>
+        <div class="bg-blue-600 p-8 rounded-2xl text-white">
+            <h4 class="text-xl font-bold mb-4">Mục tiêu của chúng tôi:</h4>
+            <ul class="space-y-4">
+                <li class="flex items-center">
+                    <span class="bg-blue-500 p-2 rounded-full mr-3 text-sm">01</span> Nâng cao nhận thức về an toàn dữ liệu.
+                </li>
+                <li class="flex items-center">
+                    <span class="bg-blue-500 p-2 rounded-full mr-3 text-sm">02</span> Hướng dẫn các bước xử lý khi bị tấn công.
+                </li>
+                <li class="flex items-center">
+                    <span class="bg-blue-500 p-2 rounded-full mr-3 text-sm">03</span> Kết nối người dùng với các cơ quan an ninh mạng.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl p-10 shadow-lg border border-gray-100 mb-16" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-2xl font-bold text-center text-gray-800 mb-10">Thực trạng Không gian số 2025 - 2026</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up" data-aos-delay="300">
+            <div>
+                <p class="text-4xl font-black text-blue-600 mb-2">78M</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wider">Người dùng Internet tại VN</p>
+            </div>
+            <div>
+                <p class="text-4xl font-black text-red-500 mb-2">15,000+</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wider">Vụ lừa đảo mạng/năm</p>
+            </div>
+            <div>
+                <p class="text-4xl font-black text-blue-600 mb-2">64%</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wider">Sử dụng mật khẩu yếu</p>
+            </div>
+            <div>
+                <p class="text-4xl font-black text-red-500 mb-2">2.0</p>
+                <p class="text-sm text-gray-500 uppercase tracking-wider">Phút có 1 mã độc mới</p>
+            </div>
+        </div>
+        <div class="mt-8 p-4 bg-gray-50 rounded-lg text-sm text-gray-600 italic">
+            * Số liệu được tổng hợp dựa trên báo cáo an ninh mạng quốc gia và các tổ chức quốc tế. Thực trạng cho thấy tội phạm mạng đang sử dụng <strong>Deepfake</strong> và <strong>AI lừa đảo</strong> với tốc độ chưa từng có.
+        </div>
+    </div>
+
+    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+
+        <a href="https://bocongan.gov.vn" target="_blank" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105">
+            CỔNG THÔNG TIN BỘ CÔNG AN
+        </a>
+    </div>
+</section>
+
+</body>
+</html>
